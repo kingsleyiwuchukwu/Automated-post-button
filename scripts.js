@@ -3,10 +3,20 @@ const header = document.querySelector('header');
 
 const addPostButton = document.getElementById('add-post');
 const articleSection = document.querySelector('section');
+const removePostButton = document.getElementById('remove-post');
 
+// Event listener to add post
 addPostButton.addEventListener('click', () => {
     const newPost = createNewPost();
     articleSection.appendChild(newPost);
+});
+
+// Event listener to remove post
+removePostButton.addEventListener('click', () => {
+  const articleCount = articleSection.childElementCount;
+  if(articleCount > 1) {
+    articleSection.removeChild(articleSection.children[articleCount - 1]);
+  }
 });
 
 // Page functions
